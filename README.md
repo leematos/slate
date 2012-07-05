@@ -1,8 +1,8 @@
 #Slate - Window Management the way you want! #
 
-Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace them due to some limitations in how each work, it attempts to overcome them by simply being extremely configurable. As a result, it may be a bit daunting to get configured, but once it is done, the benefit is huge.
+Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace them due to limitations in how each work, it attempts to overcome them by being extremely configurable. As a result, it may take some time to get your ideal configuration. Once configured the benefit is huge.
 
-Slate currently works on Mac OS X 10.6 and above
+Slate currently works on Mac OS X 10.6 and above.
 
 ## Features ##
 
@@ -23,7 +23,7 @@ Thanks to [leematos](https://github.com/leematos) for his help with the document
 
 ## Allowed Keys ##
 
-Below is a Mac small keyboard layout showing all the bindable keys. You almost get the whole keyboard.
+Below is an Apple small keyboard layout showing all the bindable keys. You almost get the whole keyboard.
 
 **Note:** If you bind any binding to cmd-tab or cmd-shift-tab, Slate will completely disable the default Mac OS X Application switcher!
 
@@ -120,7 +120,7 @@ Below is a Mac small keyboard layout showing all the bindable keys. You almost g
   </tr>
   </table>
 
-## Additional Keys ##
+## Additional Keys available on the Apple Keyboard w/ Numpad ##
     
     end
     f10
@@ -157,21 +157,19 @@ Below is a Mac small keyboard layout showing all the bindable keys. You almost g
     pageUp
     
 
-
-
 # Using Slate #
 
 ## Installing Slate ##
 
-You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
+**Note:** You must turn on the Accessibility API by checking System Preferences > Universal Access > Enable access for assistive devices to use Slate.
 
-**Note:** You must turn on the Accessibility API by checking System Preferences > Universal Access > Enable access for assistive devices
+You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
 
 ## Configuring Slate ##
 
-Slate is configured using a ".slate" file in the current user's home directory. Configuration is loaded upon running Slate. You can also re-load the config using the "Load Config" menu option on the status menu (use this at your own risk. It is better to simply restart Slate).
+Slate will use the [global config](https://github.com/jigish/slate/blob/master/Slate/default.slate) by default . If you'd like to build your own configuration just add a ".slate" file to the current user's home directory. This configuration will be loaded when you start Slate. You can also re-load the config using the "Load Config" menu option on the status menu. (Load config may not change your config. In that case, restart Slate and the changes will be applied).
 
-**Note:** If no ".slate" file exists in the current user's home directory, the [default config file](https://github.com/jigish/slate/blob/master/Slate/default.slate) will be used.
+# How to configure Slate #
 
 Configuration is split into the following directives:
 
