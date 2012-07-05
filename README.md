@@ -24,13 +24,13 @@ Big thanks to [philc](https://github.com/philc) for the Window Hints idea (and i
 
 ## Installing Slate ##
 
-You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
-
 **Note:** You must turn on the Accessibility API by checking System Preferences > Universal Access > Enable access for assistive devices
+
+You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
 
 ## Configuring Slate ##
 
-Slate is configured using a ".slate" file in the current user's home directory. Configuration is loaded upon running Slate. You can also re-load the config using the "Load Config" menu option on the status menu (use this at your own risk. It is better to simply restart Slate).
+Slate is configured using a ".slate" file in the current user's home directory. Your configuration is loaded upon running Slate. If you make any changes, you can also re-load the config using the "Load Config" menu option on the status menu (use this at your own risk. It is better to simply restart Slate).
 
 **Note:** If no ".slate" file exists in the current user's home directory, the [default config file](https://github.com/jigish/slate/blob/master/Slate/default.slate) will be used.
 
@@ -91,63 +91,6 @@ In addition to the variables above, expressions can be used with the following f
     randomn    e.g. randomn(10) = 4 (random integer between 0 and parameter-1)
 
 **Note:** When using expressions spaces are *not* allowed!
-
-### The `config` Directive ###
-
-The `config` directive follows the following format:
-
-    config name value
-
-List of allowed configs:
-
-| Name | Type | Behavior |
-|:-----|:-----|:---------|
-| `defaultToCurrentScreen` | Boolean | Default: `false`. `true` causes all bindings to default to the current screen if the screen they reference does not exist. `false` causes only bindings that do not specify a screen to default to the current screen while bindings that reference screens that do not exist simply do nothing. |
-| `nudgePercentOf` | String | Default: `windowSize`. Will use this value for the nudge percent calculation. Possible values are `windowSize` and `screenSize`. |
-| `resizePercentOf` | String | Default: `windowSize`. Will use this value for the resize percent calculation. Possible values are `windowSize` and `screenSize`. |
-| `repeatOnHoldOps` | String | Default: `resize,nudge`. Comma separated list of operations that should repeat when the hotkey is held. |
-| `secondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts (for ops in `repeatOnHoldOps`) |
-| `secondsBetweenRepeat` | Number | Default: `0.1`. The number of seconds between repeats (for ops in `repeatOnHoldOps`) |
-| `checkDefaultsOnLoad` | Boolean | Default: `false`. `true` causes the default directives to be checked/triggered after any configuration load |
-| `focusCheckWidth` | Integer | Default: `100`. The width (in pixels) of the rectangle used to check directions in the focus directive. Only used for right, left, up, above, down, and below directions. The larger this is, the futher away focus will check for adjacent windows. Consequently, the larger this is, the more irritatingly stupid focus can be. |
-| `focusCheckWidthMax` | Integer | Default: `100`. If set to anything above focusCheckWidth, the focus option will keep expanding the rectangle used to check directions by focusCheckWidth if it does not find a window until it either finds a window or the width of the rectangle is greater than `focusCheckWidthMax` |
-| `focusPreferSameApp` | Boolean | Default: `true`. When this is `true`, the focus operation will *always* choose a window in the same app to focus if it exists in the check width regardless of intersection size. When this is `false`, focus will treat all application windows the same and choose the largest intersection size |
-| `orderScreensLeftToRight` | Boolean | Default: `true`. When this is `true`, monitors will be ordered from left to right by X coordinate (if two X coordiates are the same, then the lowest Y coordinate will be first). When this is `false`, screens will be ordered according to the internal Mac OS X ordering which changes depending on which screen was plugged in first. If this is `false`, you can force ordering of screens by prefixing the screen ID with `ordered:` |
-| `windowHintsBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The background color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `windowHintsWidth` | Expression | Default: `100`. The width of the Window Hints ovelay in pixels. Please see the "Expressions" section above more information on expressions. |
-| `windowHintsHeight` | Expression | Default: `100`. The height of the Window Hints overlay in pixels. Please see the "Expressions" section above more information on expressions. |
-| `windowHintsFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `windowHintsFontName` | String | Default: `Helvetica`. The name of the Window Hints font |
-| `windowHintsFontSize` | Integer | Default: `40`. The size of the Window Hints font |
-| `windowHintsDuration` | Number | Default: `3`. The number of seconds that Window Hints will display for |
-| `windowHintsRoundedCornerSize` | Integer | Default: `5`. The size of the rounded corners of the Window Hints. Set this to `0` if you do not want rounded corners |
-| `windowHintsIgnoreHiddenWindows` | Boolean | Default: `true`. If this is set to `true`, window hints will not show for windows that are hidden. Hints will show for all windows if this is `false`. A window is hidden if the window under the point at the center of where the hint overlay would show is not the window in question. |
-| `windowHintsTopLeftX` | Semicolon Separated Array of Expressions | Default: `(windowSizeX/2)-(windowHintsWidth/2);0`. The X offset for window hints from the window's top left point (right is positive, left is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the Y coordinate from the same index in `windowHintsTopLeftY`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftY` or all `hint` bindings will fail validation. |
-| `windowHintsTopLeftY` | Semicolon Separated Array of Expressions | Default: `(windowSizeY/2)-(windowHintsHeight/2);0`. The Y offset for window hints from the window's top left point (down is positive, up is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the X coordinate from the same index in `windowHintsTopLeftX`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftX` or all `hint` bindings will fail validation. |
-| `windowHintsOrder` | `none`, `persist`, `leftToRight`, or `rightToLeft` | Default: `leftToRight`. Specifies the ordering of windows for Window Hints. If `none`, hints will be seemingly randomly ordered. If `persist`, hints will be randomly ordered but will remain the same throughout the life of the window (Currently does not work if windows have the same title). If `leftToRight`, hints will be ordered from the left of the screen to the right of the screen. If `rightToLeft`, hints will be ordered from the right of the screen to the left of the screen |
-| `switchIconSize` | Number | Default: `100`. The size of the application icons for the `switch` operation |
-| `switchIconPadding` | Number | Default: `5`. The padding around the application icons for the `switch` operation |
-| `switchBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.3`. The background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The selected background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBorderColor` | Semicolon Separated Array of Floats | Default: `230;230;230;0.9`. The selected border color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBorderSize` | Number | Default: `2`. The size of the selected border of the `switch` operation. Set this to `0` if you do not a border |
-| `switchRoundedCornerSize` | Number | Default: `5`. The size of the rounded corners of the `switch` operation. Set this to `0` if you do not want rounded corners |
-| `switchOrientation` | `horiztonal` or `vertical` | Default: `horizontal`. Which direction to grow the application switcher. |
-| `switchSecondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts for forward/back keypresses for the switch operation |
-| `switchSecondsBetweenRepeat` | Number | Default: `0.05`. The number of seconds between repeating the forward/back keypresses for the switch operation. |
-| `switchStopRepeatAtEdge` | Boolean | Default: `true`. If `true`, when holding down the switch operation forward/back keys repeats will trigger until the selected app reaches the end/beginning of the list. If `false`, holding down the switch operation forward/back keys will cycle through the app list without stopping |
-| `switchOnlyFocusMainWindow` | Boolean | Default: `true`. If `true`, the switch operation will only bring the main window of the selected app forward. If `false`, the switch operation will work similar to the default application switcher and bring all windows of the selected app forward. |
-| `switchShowTitles` | Boolean | Default: `false`. If `true`, the switch operation will show the title of the items in the list as well. |
-| `switchFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchFontName` | String | Default: `Helvetica`. The name of the `switch` operation title font |
-| `switchFontSize` | Number | Default: `14`. The size of the `switch` operation font |
-| `switchType` | `app` or `window` | Default: `app`. \[UNIMPLEMENTED - coming in 1.1\] If `app`, the `switch` operation will present a list of applications ordered by last focus. If `window` the `switch` operation will present a list of windows ordered by last focus. |
-| `switchSelectedPadding` | Number | Default: `10`. The size of the padding betweeen the edge of the switch window and the edge of the selected app selected background |
-| `keyboardLayout` | `dvorak` or `qwerty` | Default: `qwerty`. The keyboard layout you are using. |
-
-Example:
-
-    config defaultToCurrentScreen true
 
 ### The `alias` Directive ###
 
@@ -474,7 +417,6 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     -
     .
     /
-    0
     1
     2
     3
@@ -497,7 +439,6 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     down
     e
     end
-    esc
     f
     f1
     f10
@@ -571,3 +512,63 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     z
     [
     ]
+
+|esc|||
+||||
+
+### The `config` Directive ###
+
+The `config` directive follows the following format:
+
+    config name value
+
+List of allowed configs:
+
+| Name | Type | Behavior |
+|:-----|:-----|:---------|
+| `defaultToCurrentScreen` | Boolean | Default: `false`. `true` causes all bindings to default to the current screen if the screen they reference does not exist. `false` causes only bindings that do not specify a screen to default to the current screen while bindings that reference screens that do not exist simply do nothing. |
+| `nudgePercentOf` | String | Default: `windowSize`. Will use this value for the nudge percent calculation. Possible values are `windowSize` and `screenSize`. |
+| `resizePercentOf` | String | Default: `windowSize`. Will use this value for the resize percent calculation. Possible values are `windowSize` and `screenSize`. |
+| `repeatOnHoldOps` | String | Default: `resize,nudge`. Comma separated list of operations that should repeat when the hotkey is held. |
+| `secondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts (for ops in `repeatOnHoldOps`) |
+| `secondsBetweenRepeat` | Number | Default: `0.1`. The number of seconds between repeats (for ops in `repeatOnHoldOps`) |
+| `checkDefaultsOnLoad` | Boolean | Default: `false`. `true` causes the default directives to be checked/triggered after any configuration load |
+| `focusCheckWidth` | Integer | Default: `100`. The width (in pixels) of the rectangle used to check directions in the focus directive. Only used for right, left, up, above, down, and below directions. The larger this is, the futher away focus will check for adjacent windows. Consequently, the larger this is, the more irritatingly stupid focus can be. |
+| `focusCheckWidthMax` | Integer | Default: `100`. If set to anything above focusCheckWidth, the focus option will keep expanding the rectangle used to check directions by focusCheckWidth if it does not find a window until it either finds a window or the width of the rectangle is greater than `focusCheckWidthMax` |
+| `focusPreferSameApp` | Boolean | Default: `true`. When this is `true`, the focus operation will *always* choose a window in the same app to focus if it exists in the check width regardless of intersection size. When this is `false`, focus will treat all application windows the same and choose the largest intersection size |
+| `orderScreensLeftToRight` | Boolean | Default: `true`. When this is `true`, monitors will be ordered from left to right by X coordinate (if two X coordiates are the same, then the lowest Y coordinate will be first). When this is `false`, screens will be ordered according to the internal Mac OS X ordering which changes depending on which screen was plugged in first. If this is `false`, you can force ordering of screens by prefixing the screen ID with `ordered:` |
+| `windowHintsBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The background color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `windowHintsWidth` | Expression | Default: `100`. The width of the Window Hints ovelay in pixels. Please see the "Expressions" section above more information on expressions. |
+| `windowHintsHeight` | Expression | Default: `100`. The height of the Window Hints overlay in pixels. Please see the "Expressions" section above more information on expressions. |
+| `windowHintsFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `windowHintsFontName` | String | Default: `Helvetica`. The name of the Window Hints font |
+| `windowHintsFontSize` | Integer | Default: `40`. The size of the Window Hints font |
+| `windowHintsDuration` | Number | Default: `3`. The number of seconds that Window Hints will display for |
+| `windowHintsRoundedCornerSize` | Integer | Default: `5`. The size of the rounded corners of the Window Hints. Set this to `0` if you do not want rounded corners |
+| `windowHintsIgnoreHiddenWindows` | Boolean | Default: `true`. If this is set to `true`, window hints will not show for windows that are hidden. Hints will show for all windows if this is `false`. A window is hidden if the window under the point at the center of where the hint overlay would show is not the window in question. |
+| `windowHintsTopLeftX` | Semicolon Separated Array of Expressions | Default: `(windowSizeX/2)-(windowHintsWidth/2);0`. The X offset for window hints from the window's top left point (right is positive, left is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the Y coordinate from the same index in `windowHintsTopLeftY`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftY` or all `hint` bindings will fail validation. |
+| `windowHintsTopLeftY` | Semicolon Separated Array of Expressions | Default: `(windowSizeY/2)-(windowHintsHeight/2);0`. The Y offset for window hints from the window's top left point (down is positive, up is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the X coordinate from the same index in `windowHintsTopLeftX`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftX` or all `hint` bindings will fail validation. |
+| `windowHintsOrder` | `none`, `persist`, `leftToRight`, or `rightToLeft` | Default: `leftToRight`. Specifies the ordering of windows for Window Hints. If `none`, hints will be seemingly randomly ordered. If `persist`, hints will be randomly ordered but will remain the same throughout the life of the window (Currently does not work if windows have the same title). If `leftToRight`, hints will be ordered from the left of the screen to the right of the screen. If `rightToLeft`, hints will be ordered from the right of the screen to the left of the screen |
+| `switchIconSize` | Number | Default: `100`. The size of the application icons for the `switch` operation |
+| `switchIconPadding` | Number | Default: `5`. The padding around the application icons for the `switch` operation |
+| `switchBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.3`. The background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The selected background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBorderColor` | Semicolon Separated Array of Floats | Default: `230;230;230;0.9`. The selected border color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBorderSize` | Number | Default: `2`. The size of the selected border of the `switch` operation. Set this to `0` if you do not a border |
+| `switchRoundedCornerSize` | Number | Default: `5`. The size of the rounded corners of the `switch` operation. Set this to `0` if you do not want rounded corners |
+| `switchOrientation` | `horiztonal` or `vertical` | Default: `horizontal`. Which direction to grow the application switcher. |
+| `switchSecondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts for forward/back keypresses for the switch operation |
+| `switchSecondsBetweenRepeat` | Number | Default: `0.05`. The number of seconds between repeating the forward/back keypresses for the switch operation. |
+| `switchStopRepeatAtEdge` | Boolean | Default: `true`. If `true`, when holding down the switch operation forward/back keys repeats will trigger until the selected app reaches the end/beginning of the list. If `false`, holding down the switch operation forward/back keys will cycle through the app list without stopping |
+| `switchOnlyFocusMainWindow` | Boolean | Default: `true`. If `true`, the switch operation will only bring the main window of the selected app forward. If `false`, the switch operation will work similar to the default application switcher and bring all windows of the selected app forward. |
+| `switchShowTitles` | Boolean | Default: `false`. If `true`, the switch operation will show the title of the items in the list as well. |
+| `switchFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchFontName` | String | Default: `Helvetica`. The name of the `switch` operation title font |
+| `switchFontSize` | Number | Default: `14`. The size of the `switch` operation font |
+| `switchType` | `app` or `window` | Default: `app`. \[UNIMPLEMENTED - coming in 1.1\] If `app`, the `switch` operation will present a list of applications ordered by last focus. If `window` the `switch` operation will present a list of windows ordered by last focus. |
+| `switchSelectedPadding` | Number | Default: `10`. The size of the padding betweeen the edge of the switch window and the edge of the selected app selected background |
+| `keyboardLayout` | `dvorak` or `qwerty` | Default: `qwerty`. The keyboard layout you are using. |
+
+Example:
+
+    config defaultToCurrentScreen true
