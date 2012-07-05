@@ -497,12 +497,8 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     down
     e
     end
-    esc
     f
-    f1
     f10
-    f11
-    f12
     f13
     f14
     f15
@@ -510,15 +506,7 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     f17
     f18
     f19
-    f2
     f20
-    f3
-    f4
-    f5
-    f6
-    f7
-    f8
-    f9
     fn
     g
     h
@@ -576,8 +564,46 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
 
 <table>
   <tr>
-  <td>
-  esc
-  </td>
+    <td>
+      esc
+    </td>
+    <td>
+      f1
+    </td>
+    <td>
+      f2
+    </td>
+    <td>
+      f3
+    </td>
+    <td>
+      f4
+    </td>
+    <td>
+      f5
+    </td>
+    <td>
+      f6
+    </td>
+    <td>
+      f7
+    </td>
+    <td>
+      f8
+    </td>
+    <td>
+      f9
+    </td>
+    <td>
+      f10
+    </td>
+    <td>
+      f11
+    </td>
+    <td>
+      f12
+    </td>
+    <td>
+    </td>
   </tr>
   </table>
