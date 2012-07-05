@@ -1,12 +1,12 @@
-# About Slate #
+#Slate - Window Management the way you want! #
 
-Slate is a window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace them due to some limitations in how each work, it attemps to overcome them by simply being extremely configurable. As a result, it may be a bit daunting to get configured, but once it is done, the benifit is huge.
+Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace them due to some limitations in how each work, it attempts to overcome them by simply being extremely configurable. As a result, it may be a bit daunting to get configured, but once it is done, the benefit is huge.
 
 Slate currently works on Mac OS X 10.6 and above
 
-## Summary of Features ##
+## Features ##
 
-* Highly customizable
+* Insanely customizable
 * Bind keystrokes to:
   * move and/or resize windows
   * directionally focus windows
@@ -19,6 +19,145 @@ Slate currently works on Mac OS X 10.6 and above
 ## Credits ##
 
 Big thanks to [philc](https://github.com/philc) for the Window Hints idea (and initial implementation) as well as plenty of other suggestions and improvement ideas.
+Thanks to [leematos](https://github.com/leematos) for his help with the documentation organization.
+
+## Allowed Keys ##
+
+Below is a Mac small keyboard layout showing all the bindable keys. You almost get the whole keyboard.
+
+**Note:** If you bind any binding to cmd-tab or cmd-shift-tab, Slate will completely disable the default Mac OS X Application switcher!
+
+<table>
+  <tr>
+    <td>esc</td>
+    <td>f1</td>
+    <td>f2</td>
+    <td>f3</td>
+    <td>f4</td>
+    <td>f5</td>
+    <td>f6</td>
+    <td>f7</td>
+    <td>f8</td>
+    <td>f9</td>
+    <td>f10</td>
+    <td>f11</td>
+    <td>f12</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>`</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>0</td>
+    <td>-</td>
+    <td>=</td>
+    <td>delete</td>
+  </tr>
+  <tr>
+    <td>tab</td>
+    <td>q</td>
+    <td>w</td>
+    <td>e</td>
+    <td>r</td>
+    <td>t</td>
+    <td>y</td>
+    <td>u</td>
+    <td>i</td>
+    <td>o</td>
+    <td>p</td>
+    <td>[</td>
+    <td>]</td>
+    <td>backslash</td>
+  </tr>
+  <tr>
+    <td colspan="2">caps</td>
+    <td>a</td>
+    <td>s</td>
+    <td>d</td>
+    <td>f</td>
+    <td>g</td>
+    <td>h</td>
+    <td>j</td>
+    <td>k</td>
+    <td>l</td>
+    <td>;</td>
+    <td>'</td>
+    <td>return</td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td>z</td>
+    <td>x</td>
+    <td>c</td>
+    <td>v</td>
+    <td>b</td>
+    <td>n</td>
+    <td>m</td>
+    <td>,</td>
+    <td>.</td>
+    <td>/</td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td>fn</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="4">space</td>
+    <td></td>
+    <td></td>
+    <td>left</td>
+    <td>up</td>
+    <td>down</td>
+    <td>right</td>
+  </tr>
+  </table>
+
+## Additional Keys ##
+    
+    end
+    f10
+    f13
+    f14
+    f15
+    f16
+    f17
+    f18
+    f19
+    f20
+    help
+    home
+    mute
+    pad*
+    pad+
+    pad-
+    pad.
+    pad/
+    pad0
+    pad1
+    pad2
+    pad3
+    pad4
+    pad5
+    pad6
+    pad7
+    pad8
+    pad9
+    pad=
+    padClear
+    padEnter
+    pageDown
+    pageUp
+    
+
+
 
 # Using Slate #
 
@@ -464,188 +603,3 @@ You can check out my own config [here](https://github.com/jigish/dotfiles/blob/m
 # Contact #
 
 Please send all questions, bug reports, suggestions, or general commentary to [Jigish Patel](mailto:slate.issues@gmail.com) or [create an issue](https://github.com/jigish/slate/issues/new) on github.
-
-# Allowed Keys #
-
-**Note:** If you bind any binding to cmd-tab or cmd-shift-tab, Slate will completely disable the default Mac OS X Application switcher!
-
-    '
-    ,
-    -
-    .
-    /
-    0
-    1
-    2
-    3
-    4
-    5
-    6
-    7
-    8
-    9
-    ;
-    =
-    `
-    a
-    b
-    backslash
-    c
-    caps
-    d
-    delete
-    down
-    e
-    end
-    f
-    f10
-    f13
-    f14
-    f15
-    f16
-    f17
-    f18
-    f19
-    f20
-    fn
-    g
-    h
-    help
-    home
-    i
-    j
-    k
-    l
-    left
-    m
-    mute
-    n
-    o
-    p
-    pad*
-    pad+
-    pad-
-    pad.
-    pad/
-    pad0
-    pad1
-    pad2
-    pad3
-    pad4
-    pad5
-    pad6
-    pad7
-    pad8
-    pad9
-    pad=
-    padClear
-    padEnter
-    pageDown
-    pageUp
-    q
-    r
-    return
-    right
-    s
-    space
-    t
-    tab
-    u
-    up
-    v
-    w
-    x
-    y
-    z
-    [
-    ]
-
-|esc|
-
-<table>
-  <tr>
-    <td>
-      esc
-    </td>
-    <td>
-      f1
-    </td>
-    <td>
-      f2
-    </td>
-    <td>
-      f3
-    </td>
-    <td>
-      f4
-    </td>
-    <td>
-      f5
-    </td>
-    <td>
-      f6
-    </td>
-    <td>
-      f7
-    </td>
-    <td>
-      f8
-    </td>
-    <td>
-      f9
-    </td>
-    <td>
-      f10
-    </td>
-    <td>
-      f11
-    </td>
-    <td>
-      f12
-    </td>
-    <td>
-    </td>
-  </tr>
-    <tr>
-    <td>
-      `
-    </td>
-    <td>
-      1
-    </td>
-    <td>
-      2
-    </td>
-    <td>
-      3
-    </td>
-    <td>
-      4
-    </td>
-    <td>
-      5
-    </td>
-    <td>
-      6
-    </td>
-    <td>
-      7
-    </td>
-    <td>
-      8
-    </td>
-    <td>
-      9
-    </td>
-    <td>
-      0
-    </td>
-    <td>
-      
-    </td>
-    <td>
-    </td>
-    <td>
-    </td>
-    </tr>
-  </table>
