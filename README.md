@@ -572,5 +572,12 @@ Please send all questions, bug reports, suggestions, or general commentary to [J
     [
     ]
 
-|esc|||
-||||
+|esc|
+
+<table>
+  <tr>
+  <td>
+  esc
+  </td>
+  </tr>
+  </table>
