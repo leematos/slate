@@ -16,11 +16,6 @@ Slate currently works on Mac OS X 10.6 and above.
 * Window Hints: an intuitive way to change window focus
 * \[Beta\] A better, more customizable, application switcher.
 
-## Credits ##
-
-Big thanks to [philc](https://github.com/philc) for the Window Hints idea (and initial implementation) as well as plenty of other suggestions and improvement ideas.
-Thanks to [leematos](https://github.com/leematos) for his help with the documentation organization.
-
 # Using Slate #
 
 ## Installing Slate ##
@@ -594,6 +589,11 @@ Will append all of the configurations from the file `~/.slate.test` to the curre
 ### Example Config ###
 
 You can check out my own config [here](https://github.com/jigish/dotfiles/blob/master/slate).
+
+## Credits ##
+
+Big thanks to [philc](https://github.com/philc) for the Window Hints idea (and initial implementation) as well as plenty of other suggestions and improvement ideas.
+Thanks to [leematos](https://github.com/leematos) for his help with the documentation organization.
 
 # Contact #
 
