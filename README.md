@@ -1,8 +1,6 @@
-#Slate - Window Management the way you want! #
+#Slate: Window Management the way you want! #
 
-Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace these offerings due to limitations in how each work, it attempts to overcome them by being extremely configurable. As a result, it may take some time to get your ideal configuration. Once configured the benefit is huge.
-
-Slate currently works on Mac OS X 10.6 and above.
+Like Divvy and SizeUp, Slate brings window management to OSX 10.6 and above.
 
 ## Features ##
 
@@ -18,11 +16,12 @@ Slate currently works on Mac OS X 10.6 and above.
 
 # Using Slate #
 
-## Installing Slate ##
-
 **Note:** You must turn on the Accessibility API by checking System Preferences > Universal Access > Enable access for assistive devices to use Slate.
 
 You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
+
+Slate will use the [global config](https://github.com/jigish/slate/blob/master/Slate/default.slate) by default . If you'd like to build your own configuration just add a ".slate" file to the current user's home directory. This configuration will be loaded when you start Slate. You can also re-load the config using the "Load Config" menu option on the status menu. (Load config may not change your config. In that case, restart Slate and the changes will be applied).
+
 
 ## Allowed Keys ##
 
@@ -171,12 +170,6 @@ Below is an Apple small keyboard layout showing all the bindable keys.
   </tr>
   </table>
 
-## Making your Configuration ##
-
-Slate will use the [global config](https://github.com/jigish/slate/blob/master/Slate/default.slate) by default . If you'd like to build your own configuration just add a ".slate" file to the current user's home directory. This configuration will be loaded when you start Slate. You can also re-load the config using the "Load Config" menu option on the status menu. (Load config may not change your config. In that case, restart Slate and the changes will be applied).
-
-The easiest and most useful place to start is with bindings.
-
 ### The `bind` Directive ###
 
 The `bind` directive follows the following format (tokens may be separated by any number of spaces):
@@ -217,13 +210,18 @@ Some operations allow you to specify a screen. Here are the list of possible val
 
 * Move/Resize the window any which way: `move topLeftX;topLeftY sizeX;sizeY screen`
 
-        topLeftX = top left x coordinate of the window's desired position (can be an expression)
-        topLeftY = top left y coordinate of the window's desired position (can be an expression)
-        sizeX = width of the window's desired position (can be an expression)
-        sizeY = height of the window's desired position (can be an expression)
-        screen = (optional) the reference to the screen of the window's desired position.
-                 If this is not specified, it will default to the screen the window is currently on.
-                 See the table at the beginning of the Operation section for more information.
+| Name | Value |
+|:-----|:-----|
+|topLeftX|top left x coordinate of the window's desired position (can be an expression)|
+|topLeftY|top left y coordinate of the window's desired position (can be an expression)|
+|sizeX|width of the window's desired position (can be an expression)|
+|sizeY|height of the window's desired position (can be an expression)|
+|screen|(optional) the reference to the screen of the window's desired position. If this is not specified, it will default to the screen the window is currently on. See the table at the beginning of the Operation section for more information.|
+         = 
+         = 
+         = 
+         = 
+         = 
 
     Example:
 
