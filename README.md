@@ -1,6 +1,6 @@
 #Slate - Window Management the way you want! #
 
-Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace them due to limitations in how each work, it attempts to overcome them by being extremely configurable. As a result, it may take some time to get your ideal configuration. Once configured the benefit is huge.
+Slate is window management application similar to Divvy and SizeUp (except better and free!). Originally written to replace these offerings due to limitations in how each work, it attempts to overcome them by being extremely configurable. As a result, it may take some time to get your ideal configuration. Once configured the benefit is huge.
 
 Slate currently works on Mac OS X 10.6 and above.
 
@@ -24,13 +24,9 @@ Slate currently works on Mac OS X 10.6 and above.
 
 You can download the latest Slate.app packaged as a .tar.gz [here](http://slate.ninjamonkeysoftware.com/versions/slate-latest.tar.gz).
 
-## Configuring Slate ##
-
-Slate will use the [global config](https://github.com/jigish/slate/blob/master/Slate/default.slate) by default . If you'd like to build your own configuration just add a ".slate" file to the current user's home directory. This configuration will be loaded when you start Slate. You can also re-load the config using the "Load Config" menu option on the status menu. (Load config may not change your config. In that case, restart Slate and the changes will be applied).
-
 ## Allowed Keys ##
 
-Below is an Apple small keyboard layout showing all the bindable keys. You almost get the whole keyboard.
+Below is an Apple small keyboard layout showing all the bindable keys.
 
 **Note:** If you bind any binding to cmd-tab or cmd-shift-tab, Slate will completely disable the default Mac OS X Application switcher!
 
@@ -129,224 +125,57 @@ Below is an Apple small keyboard layout showing all the bindable keys. You almos
 
 ## Additional Keys available on the Apple Keyboard w/ Numpad ##
     
-    end
-    f13
-    f14
-    f15
-    f16
-    f17
-    f18
-    f19
-    f20
-    help
-    home
-    mute
-    pad*
-    pad+
-    pad-
-    pad.
-    pad/
-    pad0
-    pad1
-    pad2
-    pad3
-    pad4
-    pad5
-    pad6
-    pad7
-    pad8
-    pad9
-    pad=
-    padClear
-    padEnter
-    pageDown
-    pageUp
-    
+<table>
+  <tr>
+    <td>end</td>
+    <td>f13</td>
+    <td>f14</td>
+    <td>f15</td>
+    <td>f16</td>
+    <td>f17</td>
+    <td>f18</td>
+    <td>f19</td>
+    <td>f20</td>
+    <td>help</td>
+    <td>home</td>
+    <td>mute</td>
+  </tr>
+    <tr>
+    <td>pad-</td>
+    <td>pad.</td>
+    <td>pad0</td>
+    <td>pad1</td>
+    <td>pad2</td>
+    <td>pad3</td>
+    <td>pad4</td>
+    <td>pad5</td>
+    <td>pad6</td>
+    <td>pad7</td>
+    <td>pad8</td>
+    <td>pad9</td>
+   
+  </tr>
+    <tr>
+    <td>padClear</td>
+    <td>padEnter</td>
+    <td>padDown</td>
+    <td>padUp</td>
+    <td>pad=</td>
+    <td>pad+</td>
+    <td>pad/</td>
+    <td>pad*</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </table>
 
-Configuration is split into the following directives:
+## Making your Configuration ##
 
-* `config` (for global configurations)
-* `alias` (to create alias variables)
-* `layout` (to configure layouts)
-* `default` (to default certain screen configurations to layouts)
-* `bind` (for key bindings)
-* `source` (to load configs from another file)
+Slate will use the [global config](https://github.com/jigish/slate/blob/master/Slate/default.slate) by default . If you'd like to build your own configuration just add a ".slate" file to the current user's home directory. This configuration will be loaded when you start Slate. You can also re-load the config using the "Load Config" menu option on the status menu. (Load config may not change your config. In that case, restart Slate and the changes will be applied).
 
-###Expressions###
-
-Some directives allow parameters that can be expressions. The following strings will be replaced with the appropriate values when using expressions:
-
-    screenOriginX = target screen's top left x coordinate (should not be used in Window Hints configs)
-    screenOriginY = target screen's top left y coordinate (should not be used in Window Hints configs)
-    screenSizeX = target screen's width
-    screenSizeY = target screen's height
-    windowTopLeftX = window's current top left x coordinate (should not be used in Window Hints configs)
-    windowTopLeftY = window's current top left y coordinate (should not be used in Window Hints configs)
-    windowSizeX = window's width
-    windowSizeY = window's height
-    newWindowSizeX = window's new width (after resize, only usable in topLeftX and topLeftY, should not be
-                     used in configs)
-    newWindowSizeY = window's new height (after resize, only usable in topLeftX and topLeftY, should not be
-                     used in configs)
-    windowHintsWidth = the value of the windowHintsWidth config (only usable in windowHintsTopLeftX and
-                       windowHintsTopLeftY)
-    windowHintsHeight = the value of the windowHintsHeight config (only usable in windowHintsTopLeftX and
-                        windowHintsTopLeftY)
-
-In addition to the variables above, expressions can be used with the following functions and operators:
-
-    +          e.g. 1+1 = 2
-    -          e.g. 1-1 = 0
-    *          e.g. 2*2 = 4
-    /          e.g. 4/2 = 2
-    **         e.g. 3**2 = 9
-    sum        e.g. sum({1,2,3}) = 6
-    count      e.g. count({4,5,6}) = 3
-    min        e.g. min({1,3,5}) = 1
-    max        e.g. max({1,3,5}) = 5
-    average    e.g. average({1,2,3,4}) = 2.5
-    median     e.g. median({1,2,3,10,15}) = 3
-    mode       e.g. mode({1,3,4,3,5}) = 3
-    stddev     e.g. stddev({1,2,3,4,5}) = 1.4142135623730951
-    sqrt       e.g. sqrt(9) = 3.0
-    log        e.g. log(100) = 2.0
-    ln         e.g. ln(8) = 2.0794415416798357
-    exp        e.g. exp(2) = 7.3890560989306504 (this is "e**parameter")
-    floor      e.g. floor(1.9) = 1.0
-    ceiling    e.g. ceiling(1.1) = 2.0
-    abs        e.g. abs(-1) = 1
-    trunc      e.g. trunc(1.1123123123) = 1.0
-    random     e.g. random() = 0.20607629744336009 (random float between 0 and 1)
-    randomn    e.g. randomn(10) = 4 (random integer between 0 and parameter-1)
-
-**Note:** When using expressions spaces are *not* allowed!
-
-### The `config` Directive ###
-
-The `config` directive follows the following format:
-
-    config name value
-
-List of allowed configs:
-
-| Name | Type | Behavior |
-|:-----|:-----|:---------|
-| `defaultToCurrentScreen` | Boolean | Default: `false`. `true` causes all bindings to default to the current screen if the screen they reference does not exist. `false` causes only bindings that do not specify a screen to default to the current screen while bindings that reference screens that do not exist simply do nothing. |
-| `nudgePercentOf` | String | Default: `windowSize`. Will use this value for the nudge percent calculation. Possible values are `windowSize` and `screenSize`. |
-| `resizePercentOf` | String | Default: `windowSize`. Will use this value for the resize percent calculation. Possible values are `windowSize` and `screenSize`. |
-| `repeatOnHoldOps` | String | Default: `resize,nudge`. Comma separated list of operations that should repeat when the hotkey is held. |
-| `secondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts (for ops in `repeatOnHoldOps`) |
-| `secondsBetweenRepeat` | Number | Default: `0.1`. The number of seconds between repeats (for ops in `repeatOnHoldOps`) |
-| `checkDefaultsOnLoad` | Boolean | Default: `false`. `true` causes the default directives to be checked/triggered after any configuration load |
-| `focusCheckWidth` | Integer | Default: `100`. The width (in pixels) of the rectangle used to check directions in the focus directive. Only used for right, left, up, above, down, and below directions. The larger this is, the futher away focus will check for adjacent windows. Consequently, the larger this is, the more irritatingly stupid focus can be. |
-| `focusCheckWidthMax` | Integer | Default: `100`. If set to anything above focusCheckWidth, the focus option will keep expanding the rectangle used to check directions by focusCheckWidth if it does not find a window until it either finds a window or the width of the rectangle is greater than `focusCheckWidthMax` |
-| `focusPreferSameApp` | Boolean | Default: `true`. When this is `true`, the focus operation will *always* choose a window in the same app to focus if it exists in the check width regardless of intersection size. When this is `false`, focus will treat all application windows the same and choose the largest intersection size |
-| `orderScreensLeftToRight` | Boolean | Default: `true`. When this is `true`, monitors will be ordered from left to right by X coordinate (if two X coordiates are the same, then the lowest Y coordinate will be first). When this is `false`, screens will be ordered according to the internal Mac OS X ordering which changes depending on which screen was plugged in first. If this is `false`, you can force ordering of screens by prefixing the screen ID with `ordered:` |
-| `windowHintsBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The background color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `windowHintsWidth` | Expression | Default: `100`. The width of the Window Hints ovelay in pixels. Please see the "Expressions" section above more information on expressions. |
-| `windowHintsHeight` | Expression | Default: `100`. The height of the Window Hints overlay in pixels. Please see the "Expressions" section above more information on expressions. |
-| `windowHintsFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `windowHintsFontName` | String | Default: `Helvetica`. The name of the Window Hints font |
-| `windowHintsFontSize` | Integer | Default: `40`. The size of the Window Hints font |
-| `windowHintsDuration` | Number | Default: `3`. The number of seconds that Window Hints will display for |
-| `windowHintsRoundedCornerSize` | Integer | Default: `5`. The size of the rounded corners of the Window Hints. Set this to `0` if you do not want rounded corners |
-| `windowHintsIgnoreHiddenWindows` | Boolean | Default: `true`. If this is set to `true`, window hints will not show for windows that are hidden. Hints will show for all windows if this is `false`. A window is hidden if the window under the point at the center of where the hint overlay would show is not the window in question. |
-| `windowHintsTopLeftX` | Semicolon Separated Array of Expressions | Default: `(windowSizeX/2)-(windowHintsWidth/2);0`. The X offset for window hints from the window's top left point (right is positive, left is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the Y coordinate from the same index in `windowHintsTopLeftY`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftY` or all `hint` bindings will fail validation. |
-| `windowHintsTopLeftY` | Semicolon Separated Array of Expressions | Default: `(windowSizeY/2)-(windowHintsHeight/2);0`. The Y offset for window hints from the window's top left point (down is positive, up is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the X coordinate from the same index in `windowHintsTopLeftX`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftX` or all `hint` bindings will fail validation. |
-| `windowHintsOrder` | `none`, `persist`, `leftToRight`, or `rightToLeft` | Default: `leftToRight`. Specifies the ordering of windows for Window Hints. If `none`, hints will be seemingly randomly ordered. If `persist`, hints will be randomly ordered but will remain the same throughout the life of the window (Currently does not work if windows have the same title). If `leftToRight`, hints will be ordered from the left of the screen to the right of the screen. If `rightToLeft`, hints will be ordered from the right of the screen to the left of the screen |
-| `switchIconSize` | Number | Default: `100`. The size of the application icons for the `switch` operation |
-| `switchIconPadding` | Number | Default: `5`. The padding around the application icons for the `switch` operation |
-| `switchBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.3`. The background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The selected background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBorderColor` | Semicolon Separated Array of Floats | Default: `230;230;230;0.9`. The selected border color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchSelectedBorderSize` | Number | Default: `2`. The size of the selected border of the `switch` operation. Set this to `0` if you do not a border |
-| `switchRoundedCornerSize` | Number | Default: `5`. The size of the rounded corners of the `switch` operation. Set this to `0` if you do not want rounded corners |
-| `switchOrientation` | `horiztonal` or `vertical` | Default: `horizontal`. Which direction to grow the application switcher. |
-| `switchSecondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts for forward/back keypresses for the switch operation |
-| `switchSecondsBetweenRepeat` | Number | Default: `0.05`. The number of seconds between repeating the forward/back keypresses for the switch operation. |
-| `switchStopRepeatAtEdge` | Boolean | Default: `true`. If `true`, when holding down the switch operation forward/back keys repeats will trigger until the selected app reaches the end/beginning of the list. If `false`, holding down the switch operation forward/back keys will cycle through the app list without stopping |
-| `switchOnlyFocusMainWindow` | Boolean | Default: `true`. If `true`, the switch operation will only bring the main window of the selected app forward. If `false`, the switch operation will work similar to the default application switcher and bring all windows of the selected app forward. |
-| `switchShowTitles` | Boolean | Default: `false`. If `true`, the switch operation will show the title of the items in the list as well. |
-| `switchFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
-| `switchFontName` | String | Default: `Helvetica`. The name of the `switch` operation title font |
-| `switchFontSize` | Number | Default: `14`. The size of the `switch` operation font |
-| `switchType` | `app` or `window` | Default: `app`. \[UNIMPLEMENTED - coming in 1.1\] If `app`, the `switch` operation will present a list of applications ordered by last focus. If `window` the `switch` operation will present a list of windows ordered by last focus. |
-| `switchSelectedPadding` | Number | Default: `10`. The size of the padding betweeen the edge of the switch window and the edge of the selected app selected background |
-| `keyboardLayout` | `dvorak` or `qwerty` | Default: `qwerty`. The keyboard layout you are using. |
-
-Example:
-
-    config defaultToCurrentScreen true
-
-### The `alias` Directive ###
-
-The `alias` directive follows the following format:
-
-    alias name value
-
-When you set an alias, you can refer to it in any directive (sequentially after that alias directive) by referencing like `${name}`.
-
-Example:
-
-    alias bot-right-2nd-mon move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 1
-
-Will allow you to use `${bot-right-2nd-mon}` as a reference to `move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 1` in any directive following the alias (including other alias directives)
-
-### The `layout` Directive ###
-
-The `layout` directive follows the following format:
-
-    layout name 'app name':OPTIONS operations
-
-Where:
-
-    name = the name you want to use to reference the layout
-    'app name' = single-quoted name of the application to add to the layout.
-    OPTIONS = a comma separated list of options for this application
-    operations = a pipe separated list of operations (move, resize, push, nudge, throw, or corner)
-
-Possible Options:
-
-| Name | Function |
-|:-----|:---------|
-| `IGNORE_FAIL` | This will let slate move to the next operation if the current operation fails to resize/move on the current window |
-| `REPEAT` | This will repeat the list of operations if the number of windows is larger than the number of operations |
-| `MAIN_FIRST` | This will cause the main window to always use the first operation |
-| `MAIN_LAST` | This will cause the main window to always use the last operation (mutally exclusive with `MAIN_FIRST`) |
-| `SORT_TITLE` | This will cause the window operations to be triggered on the windows in sorted order by the window title (can be used with `MAIN_FIRST` or `MAIN_LAST`) |
-| `TITLE_ORDER=order` | This will cause the operations to be triggered on the windows starting with order which is a semi-colon separated list of window titles |
-
-
-You can have multiple layout directives that point to the same name in order to link any number of applications to the same layout.
-
-Example:
-
-    layout myLayout 'iTerm' push up bar-resize:screenSizeY/2 | push down bar-resize:screenSizeY/2
-    layout myLayout 'Google Chrome' push left bar-resize:screenSizeX/2 | push right bar-resize:screenSizeX/2
-
-Will create a layout called `myLayout` with two operations for iTerm and two operations for Google Chrome. When activated, the first window of iTerm will be moved using the first operation in the first list and the second window of iTerm will be moved using the second operation in the first list. In addition, the first window of Google Chrome will be moved using the first operation in the second list and the second window of Google Chrome will be moved using the second operation in the second list. More information on how to actually use these layouts can be found under the `layout` operation in the `bind` directive section
-
-### The `default` Directive ###
-
-The `default` directive follows the following format (tokens may be separated by any number of spaces):
-
-    default layout-or-snapshot-name screen-configuration
-
-Where:
-
-    layout-or-snapshot-name = the name of the layout or snapshot you want to default to
-    screen-configuration = either "count:NUMBER_OF_SCREENS" or
-                                  "resolutions:SEMICOLON_SEPARATED_LIST_OF_RESOLUTIONS"
-
-This directive will cause any screen configuration change (add monitor, remove monitor, screen resolution change) to trigger a search for a default layout or snapshot. If the screen configuration matches one of the defaults set, the layout or snapshot matching `layout-or-snapshot-name` will be triggered. For example:
-
-    default myLayout count:2
-
-Will trigger `myLayout` anytime the screen configuration changes to have 2 monitors. Also:
-
-    default myLayout2 resolutions:1440x900;1024x768;1680x1050
-
-Will trigger `myLayout2` anytime the screen configuration changes to have exactly 3 monitors with resolutions `1440x900`, `1024x768`, and `1680x1050`.
+The easiest and most useful place to start is with bindings.
 
 ### The `bind` Directive ###
 
@@ -356,11 +185,11 @@ The `bind` directive follows the following format (tokens may be separated by an
 
 #### Key ####
 
-key is a reference to a key on the keyboard. See Allowed Keys for a complete list. For example: the `s` key would simply be `s` while the `1` key on the number pad would be `pad1`.
+key is a reference to a key on the keyboard. See [Allowed Keys](#allowed-keys) for a complete list. For example: the `s` key would simply be `s` while the `1` key on the number pad would be `pad1`.
 
 #### Modifiers ####
 
-modifiers is a comma or semicolon separated list of standard modifier keys. Allowed modifiers are:
+modifiers are a comma or semicolon separated list of standard modifier keys. Allowed modifiers are:
 
 * Control: `ctrl`
 * Option/Alt: `alt`
@@ -557,6 +386,193 @@ Some operations allow you to specify a screen. Here are the list of possible val
     Will bind the keystroke ctrl-1 to show Window Hints using the letters `Q`, `W`, `E`, `R`, `T`, `Y`, `U`, `I`, `O`, and `P`.  This will show an overlay in the top-left corner of every window on screen containing one of those letters. While the overlays are showing, if one of those letters is pressed, the corresponding window will be focused. If there are more than 10 windows, some windows will not get hints. Pressing ESC will dismiss the hints.
 
     **Note:** There are *tons* of config options to tweak this.
+
+Configuration is split into the following directives:
+
+| Name | Type |
+|:-----|:-----|
+|config|for global configuration options|
+|alias|for alias definitions|
+|layout|to configure custom triggerable layouts|
+|default|to default certain screen configurations to layouts|
+|bind| bind specific key combinations to slate actions|
+|source|to load configs from another file|
+
+###Expressions###
+
+Some directives allow parameters that can be expressions. The following strings will be replaced with the appropriate values when using expressions:
+
+    screenOriginX = target screen's top left x coordinate (should not be used in Window Hints configs)
+    screenOriginY = target screen's top left y coordinate (should not be used in Window Hints configs)
+    screenSizeX = target screen's width
+    screenSizeY = target screen's height
+    windowTopLeftX = window's current top left x coordinate (should not be used in Window Hints configs)
+    windowTopLeftY = window's current top left y coordinate (should not be used in Window Hints configs)
+    windowSizeX = window's width
+    windowSizeY = window's height
+    newWindowSizeX = window's new width (after resize, only usable in topLeftX and topLeftY, should not be
+                     used in configs)
+    newWindowSizeY = window's new height (after resize, only usable in topLeftX and topLeftY, should not be
+                     used in configs)
+    windowHintsWidth = the value of the windowHintsWidth config (only usable in windowHintsTopLeftX and
+                       windowHintsTopLeftY)
+    windowHintsHeight = the value of the windowHintsHeight config (only usable in windowHintsTopLeftX and
+                        windowHintsTopLeftY)
+
+In addition to the variables above, expressions can be used with the following functions and operators:
+
+    +          e.g. 1+1 = 2
+    -          e.g. 1-1 = 0
+    *          e.g. 2*2 = 4
+    /          e.g. 4/2 = 2
+    **         e.g. 3**2 = 9
+    sum        e.g. sum({1,2,3}) = 6
+    count      e.g. count({4,5,6}) = 3
+    min        e.g. min({1,3,5}) = 1
+    max        e.g. max({1,3,5}) = 5
+    average    e.g. average({1,2,3,4}) = 2.5
+    median     e.g. median({1,2,3,10,15}) = 3
+    mode       e.g. mode({1,3,4,3,5}) = 3
+    stddev     e.g. stddev({1,2,3,4,5}) = 1.4142135623730951
+    sqrt       e.g. sqrt(9) = 3.0
+    log        e.g. log(100) = 2.0
+    ln         e.g. ln(8) = 2.0794415416798357
+    exp        e.g. exp(2) = 7.3890560989306504 (this is "e**parameter")
+    floor      e.g. floor(1.9) = 1.0
+    ceiling    e.g. ceiling(1.1) = 2.0
+    abs        e.g. abs(-1) = 1
+    trunc      e.g. trunc(1.1123123123) = 1.0
+    random     e.g. random() = 0.20607629744336009 (random float between 0 and 1)
+    randomn    e.g. randomn(10) = 4 (random integer between 0 and parameter-1)
+
+**Note:** When using expressions spaces are *not* allowed!
+
+### The `config` Directive ###
+
+The `config` directive follows the following format:
+
+    config name value
+
+List of allowed configs:
+
+| Name | Type | Behavior |
+|:-----|:-----|:---------|
+| `defaultToCurrentScreen` | Boolean | Default: `false`. `true` causes all bindings to default to the current screen if the screen they reference does not exist. `false` causes only bindings that do not specify a screen to default to the current screen while bindings that reference screens that do not exist simply do nothing. |
+| `nudgePercentOf` | String | Default: `windowSize`. Will use this value for the nudge percent calculation. Possible values are `windowSize` and `screenSize`. |
+| `resizePercentOf` | String | Default: `windowSize`. Will use this value for the resize percent calculation. Possible values are `windowSize` and `screenSize`. |
+| `repeatOnHoldOps` | String | Default: `resize,nudge`. Comma separated list of operations that should repeat when the hotkey is held. |
+| `secondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts (for ops in `repeatOnHoldOps`) |
+| `secondsBetweenRepeat` | Number | Default: `0.1`. The number of seconds between repeats (for ops in `repeatOnHoldOps`) |
+| `checkDefaultsOnLoad` | Boolean | Default: `false`. `true` causes the default directives to be checked/triggered after any configuration load |
+| `focusCheckWidth` | Integer | Default: `100`. The width (in pixels) of the rectangle used to check directions in the focus directive. Only used for right, left, up, above, down, and below directions. The larger this is, the futher away focus will check for adjacent windows. Consequently, the larger this is, the more irritatingly stupid focus can be. |
+| `focusCheckWidthMax` | Integer | Default: `100`. If set to anything above focusCheckWidth, the focus option will keep expanding the rectangle used to check directions by focusCheckWidth if it does not find a window until it either finds a window or the width of the rectangle is greater than `focusCheckWidthMax` |
+| `focusPreferSameApp` | Boolean | Default: `true`. When this is `true`, the focus operation will *always* choose a window in the same app to focus if it exists in the check width regardless of intersection size. When this is `false`, focus will treat all application windows the same and choose the largest intersection size |
+| `orderScreensLeftToRight` | Boolean | Default: `true`. When this is `true`, monitors will be ordered from left to right by X coordinate (if two X coordiates are the same, then the lowest Y coordinate will be first). When this is `false`, screens will be ordered according to the internal Mac OS X ordering which changes depending on which screen was plugged in first. If this is `false`, you can force ordering of screens by prefixing the screen ID with `ordered:` |
+| `windowHintsBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The background color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `windowHintsWidth` | Expression | Default: `100`. The width of the Window Hints ovelay in pixels. Please see the "Expressions" section above more information on expressions. |
+| `windowHintsHeight` | Expression | Default: `100`. The height of the Window Hints overlay in pixels. Please see the "Expressions" section above more information on expressions. |
+| `windowHintsFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for Window Hints as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `windowHintsFontName` | String | Default: `Helvetica`. The name of the Window Hints font |
+| `windowHintsFontSize` | Integer | Default: `40`. The size of the Window Hints font |
+| `windowHintsDuration` | Number | Default: `3`. The number of seconds that Window Hints will display for |
+| `windowHintsRoundedCornerSize` | Integer | Default: `5`. The size of the rounded corners of the Window Hints. Set this to `0` if you do not want rounded corners |
+| `windowHintsIgnoreHiddenWindows` | Boolean | Default: `true`. If this is set to `true`, window hints will not show for windows that are hidden. Hints will show for all windows if this is `false`. A window is hidden if the window under the point at the center of where the hint overlay would show is not the window in question. |
+| `windowHintsTopLeftX` | Semicolon Separated Array of Expressions | Default: `(windowSizeX/2)-(windowHintsWidth/2);0`. The X offset for window hints from the window's top left point (right is positive, left is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the Y coordinate from the same index in `windowHintsTopLeftY`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftY` or all `hint` bindings will fail validation. |
+| `windowHintsTopLeftY` | Semicolon Separated Array of Expressions | Default: `(windowSizeY/2)-(windowHintsHeight/2);0`. The Y offset for window hints from the window's top left point (down is positive, up is negative). If `windowHintsIgnoreHiddenWindows` is set to `true`, the `hint` operation will try each expression in this array (using the X coordinate from the same index in `windowHintsTopLeftX`) sequetially to see if it represents a point that is visible. The `hint` operation will display a hint at the first visible point. Note that the number of elements in this array *must* equal the number of elements in `windowHintsTopLeftX` or all `hint` bindings will fail validation. |
+| `windowHintsOrder` | `none`, `persist`, `leftToRight`, or `rightToLeft` | Default: `leftToRight`. Specifies the ordering of windows for Window Hints. If `none`, hints will be seemingly randomly ordered. If `persist`, hints will be randomly ordered but will remain the same throughout the life of the window (Currently does not work if windows have the same title). If `leftToRight`, hints will be ordered from the left of the screen to the right of the screen. If `rightToLeft`, hints will be ordered from the right of the screen to the left of the screen |
+| `switchIconSize` | Number | Default: `100`. The size of the application icons for the `switch` operation |
+| `switchIconPadding` | Number | Default: `5`. The padding around the application icons for the `switch` operation |
+| `switchBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.3`. The background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBackgroundColor` | Semicolon Separated Array of Floats | Default: `50;53;58;0.9`. The selected background color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBorderColor` | Semicolon Separated Array of Floats | Default: `230;230;230;0.9`. The selected border color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchSelectedBorderSize` | Number | Default: `2`. The size of the selected border of the `switch` operation. Set this to `0` if you do not a border |
+| `switchRoundedCornerSize` | Number | Default: `5`. The size of the rounded corners of the `switch` operation. Set this to `0` if you do not want rounded corners |
+| `switchOrientation` | `horiztonal` or `vertical` | Default: `horizontal`. Which direction to grow the application switcher. |
+| `switchSecondsBeforeRepeat` | Number | Default: `0.4`. The number of seconds before repeating starts for forward/back keypresses for the switch operation |
+| `switchSecondsBetweenRepeat` | Number | Default: `0.05`. The number of seconds between repeating the forward/back keypresses for the switch operation. |
+| `switchStopRepeatAtEdge` | Boolean | Default: `true`. If `true`, when holding down the switch operation forward/back keys repeats will trigger until the selected app reaches the end/beginning of the list. If `false`, holding down the switch operation forward/back keys will cycle through the app list without stopping |
+| `switchOnlyFocusMainWindow` | Boolean | Default: `true`. If `true`, the switch operation will only bring the main window of the selected app forward. If `false`, the switch operation will work similar to the default application switcher and bring all windows of the selected app forward. |
+| `switchShowTitles` | Boolean | Default: `false`. If `true`, the switch operation will show the title of the items in the list as well. |
+| `switchFontColor` | Semicolon Separated Array of Floats | Default: `255;255;255;1.0`. The font color for the `switch` operation as an array in the form `Red;Green;Blue;Alpha` where `Red`, `Green`, and `Blue` are numbers between `0.0` and `255.0` and `Alpha` is a number between `0.0` and `1.0` |
+| `switchFontName` | String | Default: `Helvetica`. The name of the `switch` operation title font |
+| `switchFontSize` | Number | Default: `14`. The size of the `switch` operation font |
+| `switchType` | `app` or `window` | Default: `app`. \[UNIMPLEMENTED - coming in 1.1\] If `app`, the `switch` operation will present a list of applications ordered by last focus. If `window` the `switch` operation will present a list of windows ordered by last focus. |
+| `switchSelectedPadding` | Number | Default: `10`. The size of the padding betweeen the edge of the switch window and the edge of the selected app selected background |
+| `keyboardLayout` | `dvorak` or `qwerty` | Default: `qwerty`. The keyboard layout you are using. |
+
+Example:
+
+    config defaultToCurrentScreen true
+
+### The `alias` Directive ###
+
+The `alias` directive follows the following format:
+
+    alias name value
+
+When you set an alias, you can refer to it in any directive (sequentially after that alias directive) by referencing like `${name}`.
+
+Example:
+
+    alias bot-right-2nd-mon move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 1
+
+Will allow you to use `${bot-right-2nd-mon}` as a reference to `move screenOriginX+2*screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 1` in any directive following the alias (including other alias directives)
+
+### The `layout` Directive ###
+
+The `layout` directive follows the following format:
+
+    layout name 'app name':OPTIONS operations
+
+Where:
+
+    name = the name you want to use to reference the layout
+    'app name' = single-quoted name of the application to add to the layout.
+    OPTIONS = a comma separated list of options for this application
+    operations = a pipe separated list of operations (move, resize, push, nudge, throw, or corner)
+
+Possible Options:
+
+| Name | Function |
+|:-----|:---------|
+| `IGNORE_FAIL` | This will let slate move to the next operation if the current operation fails to resize/move on the current window |
+| `REPEAT` | This will repeat the list of operations if the number of windows is larger than the number of operations |
+| `MAIN_FIRST` | This will cause the main window to always use the first operation |
+| `MAIN_LAST` | This will cause the main window to always use the last operation (mutally exclusive with `MAIN_FIRST`) |
+| `SORT_TITLE` | This will cause the window operations to be triggered on the windows in sorted order by the window title (can be used with `MAIN_FIRST` or `MAIN_LAST`) |
+| `TITLE_ORDER=order` | This will cause the operations to be triggered on the windows starting with order which is a semi-colon separated list of window titles |
+
+
+You can have multiple layout directives that point to the same name in order to link any number of applications to the same layout.
+
+Example:
+
+    layout myLayout 'iTerm' push up bar-resize:screenSizeY/2 | push down bar-resize:screenSizeY/2
+    layout myLayout 'Google Chrome' push left bar-resize:screenSizeX/2 | push right bar-resize:screenSizeX/2
+
+Will create a layout called `myLayout` with two operations for iTerm and two operations for Google Chrome. When activated, the first window of iTerm will be moved using the first operation in the first list and the second window of iTerm will be moved using the second operation in the first list. In addition, the first window of Google Chrome will be moved using the first operation in the second list and the second window of Google Chrome will be moved using the second operation in the second list. More information on how to actually use these layouts can be found under the `layout` operation in the `bind` directive section
+
+### The `default` Directive ###
+
+The `default` directive follows the following format (tokens may be separated by any number of spaces):
+
+    default layout-or-snapshot-name screen-configuration
+
+Where:
+
+    layout-or-snapshot-name = the name of the layout or snapshot you want to default to
+    screen-configuration = either "count:NUMBER_OF_SCREENS" or
+                                  "resolutions:SEMICOLON_SEPARATED_LIST_OF_RESOLUTIONS"
+
+This directive will cause any screen configuration change (add monitor, remove monitor, screen resolution change) to trigger a search for a default layout or snapshot. If the screen configuration matches one of the defaults set, the layout or snapshot matching `layout-or-snapshot-name` will be triggered. For example:
+
+    default myLayout count:2
+
+Will trigger `myLayout` anytime the screen configuration changes to have 2 monitors. Also:
+
+    default myLayout2 resolutions:1440x900;1024x768;1680x1050
+
+Will trigger `myLayout2` anytime the screen configuration changes to have exactly 3 monitors with resolutions `1440x900`, `1024x768`, and `1680x1050`.
 
 * \[Beta\] A Better Application Switcher: `switch`
 
